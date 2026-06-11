@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-padding-top: 5rem; /* Ajuste que impede o header de tampar o conteúdo */
+}
+
+/* Restante do seu código CSS abaixo... */
+@theme {
+  --color-roxo-principal: #3B1C54;
+  --color-roxo-escuro: #2B123E;
+  --color-dourado-accent: #C5A059;
+  --color-lilas-fundo: #EBDDF2;
+  --color-roxo-vibrante: #6E309D;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-lilas-fundo);
+  color: var(--color-roxo-principal);
+  font-family: 'Georgia', serif;
+
+}
