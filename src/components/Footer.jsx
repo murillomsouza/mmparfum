@@ -56,8 +56,7 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-dourado-accent shrink-0" />
                 <p>
-                  Segunda a Sexta: 09h às 18h<br />
-                  Sábado: 09h às 13h
+                  Segunda a Sexta: 08h às 18h<br />
                 </p>
               </div>
 
@@ -67,7 +66,7 @@ export function Footer() {
                   onClick={handleAtendimentoClick}
                   className="hover:text-white transition-colors text-left font-medium"
                 >
-                  WhatsApp: (11) 99999-9999
+                  WhatsApp: (19) 99731-8024
                 </button>
               </div>
             </address>
@@ -90,7 +89,7 @@ export function Footer() {
 
             <div className="mt-4">
               <a 
-                href="https://instagram.com/mmparfum" 
+                href="https://instagram.com/mmparfum.oficial" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-white/80 hover:text-dourado-accent transition-colors w-fit"
