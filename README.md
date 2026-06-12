@@ -2,6 +2,8 @@
 
 Landing Page desenvolvida para uma perfumaria especializada em fragrâncias árabes e importadas, com foco em experiência do usuário, performance, SEO Local e conversão de vendas.
 
+![alt text](<docs/images/seção inicial.png>)
+
 ## Objetivo
 
 Desenvolver uma aplicação moderna e responsiva para apresentação de produtos, fortalecendo a presença digital da marca e facilitando o contato direto com clientes através do WhatsApp.
@@ -25,14 +27,20 @@ Desenvolver uma aplicação moderna e responsiva para apresentação de produtos
 - Filtro por categorias.
 - Paginação com carregamento progressivo.
 
+![alt text](<docs/images/catalogo de produtos.png>)
+
 ### Favoritos
 - Marcação de produtos favoritos.
 - Persistência dos dados utilizando LocalStorage.
+
+![alt text](<docs/images/catalogo de favoritos.png>)
 
 ### Modal de Detalhes
 - Visualização ampliada dos produtos.
 - Bloqueio de rolagem da página durante a abertura do modal.
 - Integração direta com WhatsApp para contato comercial.
+
+![alt text](docs/images/modal.png)
 
 ### Prova Social
 - Seção de depoimentos.
