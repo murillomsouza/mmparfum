@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { WHATSAPP_NUMBER } from '../constants';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const mensagem = "Olá! Vim pelo site da MM Parfum e gostaria de conhecer os perfumes disponíveis.";
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-lilas-fundo/90 backdrop-blur-md border-b border-roxo-principal/10 shadow-sm">
@@ -34,7 +37,9 @@ export function Header() {
 
           <div className="flex items-center gap-3">
             <a 
-              href="#contato" 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-block bg-roxo-principal text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md border border-dourado-accent/30 hover:bg-roxo-escuro active:scale-95 transition-all"
             >
               Fale Conosco
@@ -69,7 +74,9 @@ export function Header() {
             <a href="#contato" className="text-roxo-principal font-medium text-base" onClick={() => setIsMenuOpen(false)}>Contato</a>
             
             <a 
-              href="#contato" 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="sm:hidden bg-roxo-principal text-white text-center px-5 py-3 mt-2 rounded-full text-sm font-bold uppercase tracking-wider shadow-md active:scale-95 transition-all"
             >
               Fale Conosco
