@@ -101,6 +101,12 @@ export function Footer() {
               >
                 Encomendas Especiais
               </button>
+              <a
+                href="/politica-de-privacidade.html"
+                className="hover:text-dourado-accent transition-colors w-fit"
+            >
+                Política de Privacidade
+            </a>
             </nav>
 
             <div className="mt-4">

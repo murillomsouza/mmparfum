@@ -1,10 +1,13 @@
+import './App.css';
+
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { PromoCTA } from './components/PromoCTA';
 import { TrustBar } from './components/TrustBar';
 import { Vitrine } from './components/Vitrine';
 import { Depoimentos } from './components/Depoimentos';
-import { Footer } from './components/Footer'; // <- Importe aqui
+import { Footer } from './components/Footer';
+import { CookieBanner } from './components/CookieBanner';
 
 function App() {
   const campanhaAtual = {
@@ -21,19 +24,19 @@ function App() {
   return (
     <div className="min-h-screen bg-lilas-fundo">
       <Header />
-      
+
       <main>
         <Hero campanha={campanhaAtual}>
           <PromoCTA />
         </Hero>
-        
+
         <TrustBar />
         <Vitrine />
         <Depoimentos />
       </main>
 
-      {/* Renderize o Footer fora da tag <main> */}
       <Footer />
+      <CookieBanner />
     </div>
   );
 }
