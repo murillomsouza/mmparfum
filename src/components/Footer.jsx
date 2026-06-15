@@ -122,7 +122,14 @@ export function Footer() {
           </div>
 
         </div>
-
+        <div className="border-t border-white/10 pt-6 mb-6 text-center">
+          <p className="text-sm text-white/70">
+            MM Parfum • CNPJ: 67.258.775/0001-32
+          </p>
+          <p className="text-xs text-white/50 mt-1">
+            Empresa registrada no Brasil • Produtos originais e importados
+          </p>
+        </div>
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <p>&copy; {anoAtual} MM Parfum. Todos os direitos reservados.</p>
 
