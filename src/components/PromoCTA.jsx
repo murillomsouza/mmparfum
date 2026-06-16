@@ -4,7 +4,7 @@ import { WHATSAPP_NUMBER } from '../constants';
 export function PromoCTA() {
   const handlePromoClick = (e) => {
     e.preventDefault();
-    const text = "Olá! Gostaria de resgatar meu cupom de 10% de desconto para minha primeira compra na MM Parfum.";
+    const text = "Olá! Gostaria de resgatar meu cupom de 5% de desconto para minha primeira compra na MM Parfum.";
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -16,7 +16,7 @@ export function PromoCTA() {
     >
       <span className="text-xl group-hover:scale-110 transition-transform">🎁</span> 
       <span className="underline decoration-dourado-accent/50 group-hover:decoration-dourado-accent underline-offset-4 transition-colors">
-        Quero 10% OFF na minha primeira compra
+        Quero 5% OFF na minha primeira compra
       </span>
     </button>
   );
