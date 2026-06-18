@@ -27,9 +27,14 @@ export function FAQ() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  return (
-    <section className="py-16 bg-lilas-fundo relative border-t border-roxo-principal/10">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+return (
+    <section className="py-16 bg-lilas-fundo relative">
+      
+      {/* MÁSCARA INFALÍVEL: Começa 100% branco tocando os depoimentos e some suavemente */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+
+      {/* Container principal (adicionado relative e z-10 para ficar acima da máscara) */}
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 text-roxo-principal mb-3">
