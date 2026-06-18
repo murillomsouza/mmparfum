@@ -1,6 +1,21 @@
 import React from 'react';
 
 export function Hero({ campanha = {}, children }) {
+  // Função de rastreamento do GA4
+  const trackGAEvent = (eventName, buttonName, location) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, {
+        'event_category': 'Interação_Hero',
+        'event_label': buttonName,
+        'location': location
+      });
+    }
+  };
+
+  const handleCTAClick = () => {
+    trackGAEvent('click_cta', `Botão: ${campanha.textoBotao || 'Explorar'}`, 'Hero Section');
+  };
+
   return (
     <section id= "inicio" className="relative bg-lilas-fundo pt-24 pb-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -27,6 +42,7 @@ export function Hero({ campanha = {}, children }) {
             
             <a 
               href="#produtos" 
+              onClick={handleCTAClick}
               className="inline-flex items-center justify-center gap-2 bg-roxo-principal text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg shadow-roxo-principal/20 hover:bg-roxo-escuro active:scale-95 transition-all duration-300 w-full sm:w-auto"
             >
               <svg className="w-5 h-5 text-dourado-accent" fill="currentColor" viewBox="0 0 20 20">

@@ -8,10 +8,28 @@ export function MaisVendidos() {
     .filter((perfume) => perfume.maisVendido)
     .slice(0, 5);
 
+  // Função de rastreamento do GA4
+  const trackGAEvent = (eventName, buttonName, location) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, {
+        'event_category': 'Interação_MaisVendidos',
+        'event_label': buttonName,
+        'location': location
+      });
+    }
+  };
+
   const handleCompraRapida = (perfume) => {
+    // Rastreia qual perfume específico gerou o clique para o WhatsApp
+    trackGAEvent('generate_lead', `Comprar Mais Vendido: ${perfume.name}`, 'Cards Mais Vendidos');
+
     const text = perfume.whatsappText || `Olá! Gostaria de garantir o ${perfume.name}.`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleCatalogoClick = () => {
+    trackGAEvent('click_cta', 'Botão Ver Catálogo Completo', 'Seção Mais Vendidos');
   };
 
   return (
@@ -91,6 +109,7 @@ export function MaisVendidos() {
         <div className="flex justify-center mt-4 sm:mt-8">
           <a
             href="#produtos"
+            onClick={handleCatalogoClick}
             className="bg-roxo-principal text-white px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg shadow-roxo-principal/20 hover:bg-roxo-escuro active:scale-95 transition-all duration-300"
           >
             Ver Catálogo Completo

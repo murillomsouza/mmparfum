@@ -3,7 +3,21 @@ import { MessageCircle } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../constants';
 
 export function WhatsAppFloating() {
+  // Função de rastreamento do GA4
+  const trackGAEvent = (eventName, buttonName, location) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, {
+        'event_category': 'Interação_WhatsApp_Flutuante',
+        'event_label': buttonName,
+        'location': location
+      });
+    }
+  };
+
   const handleWhatsAppClick = () => {
+    // Registra o clique no GA4 antes de abrir o WhatsApp
+    trackGAEvent('generate_lead', 'Botão Flutuante', 'Página Global');
+
     const text = "Olá! Estava navegando no site da MM Parfum e gostaria de tirar uma dúvida.";
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');

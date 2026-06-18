@@ -6,6 +6,26 @@ export function Header() {
   const mensagem = "Olá! Vim pelo site da MM Parfum e gostaria de conhecer os perfumes disponíveis.";
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
 
+  // Função para disparar eventos para o GA4 de forma segura
+  const trackGAEvent = (eventName, buttonName, location) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, {
+        'event_category': 'Interação',
+        'event_label': buttonName,
+        'location': location
+      });
+    }
+  };
+
+  const handleNavClick = (sectionName) => {
+    setIsMenuOpen(false);
+    trackGAEvent('click_nav_link', `Menu: ${sectionName}`, 'Header');
+  };
+
+  const handleWhatsappClick = (deviceType) => {
+    trackGAEvent('generate_lead', 'Botão Fale Conosco', `Header - ${deviceType}`);
+  };
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-lilas-fundo/90 backdrop-blur-md border-b border-roxo-principal/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,10 +49,10 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-roxo-principal font-medium text-sm">
-            <a href="#inicio" className="hover:text-dourado-accent transition-colors">Início</a>
-            <a href="#produtos" className="hover:text-dourado-accent transition-colors">Produtos</a>
-            <a href="#depoimentos" className="hover:text-dourado-accent transition-colors">Depoimentos</a>
-            <a href="#contato" className="hover:text-dourado-accent transition-colors">Contato</a>
+            <a href="#inicio" onClick={() => handleNavClick('Início')} className="hover:text-dourado-accent transition-colors">Início</a>
+            <a href="#produtos" onClick={() => handleNavClick('Produtos')} className="hover:text-dourado-accent transition-colors">Produtos</a>
+            <a href="#depoimentos" onClick={() => handleNavClick('Depoimentos')} className="hover:text-dourado-accent transition-colors">Depoimentos</a>
+            <a href="#contato" onClick={() => handleNavClick('Contato')} className="hover:text-dourado-accent transition-colors">Contato</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -40,6 +60,7 @@ export function Header() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => handleWhatsappClick('Desktop')}
               className="hidden sm:inline-block bg-roxo-principal text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md border border-dourado-accent/30 hover:bg-roxo-escuro active:scale-95 transition-all"
             >
               Fale Conosco
@@ -68,15 +89,16 @@ export function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-lilas-fundo border-t border-roxo-principal/10 shadow-lg absolute w-full left-0">
           <nav className="flex flex-col px-4 py-4 space-y-4">
-            <a href="#inicio" className="text-roxo-principal font-medium text-base" onClick={() => setIsMenuOpen(false)}>Início</a>
-            <a href="#produtos" className="text-roxo-principal font-medium text-base" onClick={() => setIsMenuOpen(false)}>Produtos</a>
-            <a href="#depoimentos" className="text-roxo-principal font-medium text-base" onClick={() => setIsMenuOpen(false)}>Depoimentos</a>
-            <a href="#contato" className="text-roxo-principal font-medium text-base" onClick={() => setIsMenuOpen(false)}>Contato</a>
+            <a href="#inicio" className="text-roxo-principal font-medium text-base" onClick={() => handleNavClick('Início Mobile')}>Início</a>
+            <a href="#produtos" className="text-roxo-principal font-medium text-base" onClick={() => handleNavClick('Produtos Mobile')}>Produtos</a>
+            <a href="#depoimentos" className="text-roxo-principal font-medium text-base" onClick={() => handleNavClick('Depoimentos Mobile')}>Depoimentos</a>
+            <a href="#contato" className="text-roxo-principal font-medium text-base" onClick={() => handleNavClick('Contato Mobile')}>Contato</a>
             
             <a 
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => handleWhatsappClick('Mobile Menu')}
               className="sm:hidden bg-roxo-principal text-white text-center px-5 py-3 mt-2 rounded-full text-sm font-bold uppercase tracking-wider shadow-md active:scale-95 transition-all"
             >
               Fale Conosco

@@ -34,6 +34,17 @@ export function Vitrine() {
     setVisibleCount(ITEMS_PER_PAGE);
   }, [filtroAtivo, searchTerm]);
 
+  // Função de rastreamento do GA4
+  const trackGAEvent = (eventName, buttonName, location) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, {
+        'event_category': 'Interação_Vitrine',
+        'event_label': buttonName,
+        'location': location
+      });
+    }
+  };
+
   const toggleFavorito = (id) => {
     setFavoritos((prev) =>
       prev.includes(id)
@@ -74,16 +85,21 @@ export function Vitrine() {
 
   const handleVerMais = () => {
     setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
+    trackGAEvent('click_pagination', 'Botão Ver Mais', 'Vitrine');
   };
 
   const handleVerMenos = () => {
     setVisibleCount((prev) =>
       Math.max(ITEMS_PER_PAGE, prev - ITEMS_PER_PAGE)
     );
+    trackGAEvent('click_pagination', 'Botão Ver Menos', 'Vitrine');
   };
 
   const handleEncomendaClick = () => {
     const mensagem = `Olá! Busquei por "${searchTerm}" no site da MM Parfum e vi que não está disponível no momento. Gostaria de verificar a possibilidade de fazer uma encomenda.`;
+    
+    // Rastreia o clique como lead e salva qual foi a busca falha
+    trackGAEvent('generate_lead', 'Botão Encomendar Falta de Estoque', `Busca Falha: ${searchTerm}`);
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
       mensagem

@@ -23,8 +23,25 @@ export function FAQ() {
     }
   ];
 
+  // Função de rastreamento do GA4
+  const trackGAEvent = (eventName, buttonName, location) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, {
+        'event_category': 'Interação_FAQ',
+        'event_label': buttonName,
+        'location': location
+      });
+    }
+  };
+
   const toggleFaq = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    const isOpening = openIndex !== index;
+    setOpenIndex(isOpening ? index : null);
+
+    // Só dispara a métrica se o usuário estiver ABRINDO a pergunta para ler
+    if (isOpening) {
+      trackGAEvent('click_faq', `Dúvida: ${faqs[index].pergunta}`, 'Seção FAQ');
+    }
   };
 
 return (

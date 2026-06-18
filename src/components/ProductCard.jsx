@@ -17,9 +17,37 @@ export function ProductCard({ perfume, isFavorito, toggleFavorito }) {
     };
   }, [isModalOpen]);
 
-  const handleWhatsAppClick = () => {
+  // Função de rastreamento do GA4
+  const trackGAEvent = (eventName, buttonName, location) => {
+    if (window.gtag) {
+      window.gtag('event', eventName, {
+        'event_category': 'Interação_Produto',
+        'event_label': buttonName,
+        'location': location
+      });
+    }
+  };
+
+  const handleWhatsAppClick = (location) => {
+    // Rastreia a conversão e o perfume escolhido
+    trackGAEvent('generate_lead', `Comprar: ${perfume.name}`, location);
+
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(perfume.whatsappText)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleToggleFavorito = () => {
+    toggleFavorito(perfume.id);
+    
+    // Dispara apenas quando o usuário adiciona aos favoritos (e não quando remove)
+    if (!isFavorito) {
+      trackGAEvent('add_to_wishlist', `Favoritou: ${perfume.name}`, 'Vitrine Principal');
+    }
+  };
+
+  const handleSaibaMais = () => {
+    setIsModalOpen(true);
+    trackGAEvent('view_item', `Saiba Mais: ${perfume.name}`, 'Vitrine Principal');
   };
 
   return (
@@ -29,7 +57,7 @@ export function ProductCard({ perfume, isFavorito, toggleFavorito }) {
         <div className="relative aspect-square overflow-hidden bg-lilas-fundo/30 p-4">
           
           <button 
-            onClick={() => toggleFavorito(perfume.id)}
+            onClick={handleToggleFavorito}
             className="absolute top-2 left-2 z-20 p-2 bg-white/90 backdrop-blur rounded-full shadow-sm text-roxo-principal hover:scale-110 active:scale-95 transition-all"
             aria-label="Favoritar"
           >
@@ -70,13 +98,13 @@ export function ProductCard({ perfume, isFavorito, toggleFavorito }) {
 
           <div className="mt-auto flex flex-col gap-2">
             <button
-              onClick={() => setIsModalOpen(true)}
+              onClick={handleSaibaMais}
               className="w-full py-2 text-xs font-bold text-roxo-principal border border-roxo-principal rounded-full hover:bg-roxo-principal/5 transition-colors"
             >
               Saiba Mais
             </button>
             <button
-              onClick={handleWhatsAppClick}
+              onClick={() => handleWhatsAppClick('Card Principal')}
               className="w-full py-2 text-xs font-bold text-white bg-roxo-principal rounded-full hover:bg-roxo-escuro active:scale-95 transition-all shadow-md shadow-roxo-principal/20"
             >
               Garantir Frasco
@@ -131,7 +159,7 @@ export function ProductCard({ perfume, isFavorito, toggleFavorito }) {
 
             <div className="p-4 border-t border-roxo-principal/10 bg-white">
               <button
-                onClick={handleWhatsAppClick}
+                onClick={() => handleWhatsAppClick('Modal do Produto')}
                 className="w-full py-3.5 text-sm font-bold text-white bg-roxo-principal rounded-full hover:bg-roxo-escuro active:scale-95 transition-all shadow-lg shadow-roxo-principal/20"
               >
                 Garantir Meu Frasco
