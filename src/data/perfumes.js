@@ -7,7 +7,7 @@ export const perfumes = [
     image: "/imgs/asad-elixir.jpeg",
     aromas: "Especiado, Amadeirado",
     description:
-      "Intenso e misterioso, um flanker que eleva a sofisticação a outro nível.",
+      "Uma evolução magistral da perfumaria árabe. Intenso, noturno e misterioso, este flanker eleva a sofisticação a um novo patamar, ideal para homens que desejam deixar um rastro de poder e sedução.",
     notes: {
       top: "Pimenta Preta",
       heart: "Café",
@@ -26,7 +26,7 @@ export const perfumes = [
     image: "/imgs/ateeri.jpeg",
     aromas: "Mel, Floral, Âmbar",
     description:
-      "Design icônico em forma de colmeia, uma fragrância doce, luxuosa e magnética.",
+      "Envolto em um design icônico de colmeia, é uma obra-prima magnética. Uma fragrância luxuosa e doce que atrai olhares, combinando perfeitamente o calor do mel com a elegância do âmbar.",
     notes: {
       top: "Mel",
       heart: "Flores Brancas",
@@ -43,7 +43,7 @@ export const perfumes = [
     image: "/imgs/yara.jpeg",
     aromas: "Baunilha, Tropical, Gourmet",
     description:
-      "O queridinho mundial. Cremoso, doce e extremamente feminino.",
+      "O queridinho mundial da Lattafa. Uma explosão gourmand cremosa, doce e extremamente feminina que envolve a pele como uma nuvem de algodão doce e frutas tropicais.",
     notes: {
       top: "Orquídea",
       heart: "Frutas Tropicais",
@@ -62,7 +62,7 @@ export const perfumes = [
     image: "/imgs/asad.jpeg",
     aromas: "Especiado, Âmbar, Baunilha",
     description:
-      "O clássico da Lattafa. Poderoso, marcante e extremamente masculino, combina especiarias quentes, notas ambaradas e uma base adocicada irresistível.",
+      "O pilar da masculinidade na Lattafa. Poderoso e inesquecível, combina perfeitamente o calor das especiarias com notas ambaradas, criando uma aura de confiança inabalável.",
     notes: {
       top: "Pimenta Preta",
       heart: "Patchouli",
@@ -81,7 +81,7 @@ export const perfumes = [
     image: "/imgs/eclaire.jpeg",
     aromas: "Caramelo, Baunilha, Doce",
     description:
-      "Uma sobremesa olfativa. Gourmand, elegante e viciante.",
+      "A verdadeira essência da confeitaria de luxo. Uma sobremesa olfativa gourmand, elegante e perigosamente viciante, perfeita para quem ama fragrâncias doces e cremosas.",
     notes: {
       top: "Caramelo",
       heart: "Leite",
@@ -100,7 +100,7 @@ export const perfumes = [
     image: "/imgs/sabah-al-ward.jpeg",
     aromas: "Floral, Rosas, Frutado",
     description:
-      "A essência de um jardim árabe pela manhã. Fresco e elegante.",
+      "A tradução olfativa de um palácio árabe ao amanhecer. Radiante e elegante, este perfume exala o frescor do orvalho sobre pétalas de rosas recém-colhidas.",
     notes: {
       top: "Tangerina",
       heart: "Rosa",
@@ -117,7 +117,7 @@ export const perfumes = [
     image: "/imgs/afeef.jpeg",
     aromas: "Floral, Ouro, Especiado",
     description:
-      "Frasco escultural com pavões. Luxo puro e floral aristocrático.",
+      "Mais que um perfume, uma verdadeira joia aristocrática. Apresentado em um frasco escultural de pavões, entrega uma experiência floral luxuosa, opulenta e digna da realeza.",
     notes: {
       top: "Açafrão",
       heart: "Jasmim",
@@ -134,7 +134,7 @@ export const perfumes = [
     image: "/imgs/durrat-al-aroos.jpeg",
     aromas: "Âmbar, Floral, Amadeirado",
     description:
-      "A 'Pérola da Noiva'. Uma fragrância radiante para momentos inesquecíveis.",
+      "Conhecida como a 'Pérola da Noiva', esta fragrância é o ápice do romantismo. Um aroma radiante, delicado e sofisticado, criado para eternizar momentos inesquecíveis.",
     notes: {
       top: "Bergamota",
       heart: "Jasmim",
@@ -151,7 +151,7 @@ export const perfumes = [
     image: "/imgs/fakhar-rose.jpeg",
     aromas: "Floral, Frutado, Fresco",
     description:
-      "Elegância branca e dourada. Versátil e extremamente chic.",
+      "A personificação da feminilidade moderna em um frasco branco e dourado. Uma composição versátil, fresca e extremamente chic que transita do dia para a noite com perfeição.",
     notes: {
       top: "Frutas",
       heart: "Jasmim",
@@ -168,7 +168,7 @@ export const perfumes = [
     image: "/imgs/turathi.jpeg",
     aromas: "Cítrico, Aquático, Amadeirado",
     description:
-      "Um dos perfumes masculinos mais elogiados. Refrescante, cítrico e luxuoso.",
+      "O rei dos elogios. Uma jornada olfativa intensamente refrescante e cítrica, que entrega um frescor luxuoso e revigorante sem perder a profundidade e a elegância.",
     notes: {
       top: "Toranja",
       heart: "Especiarias",
@@ -187,7 +187,7 @@ export const perfumes = [
     image: "/imgs/pisa.jpeg",
     aromas: "Amadeirado, Couro, Intenso",
     description:
-      "Design arquitetônico único. Uma fragrância de presença e força.",
+      "Inspirado na força da arquitetura, é a escolha definitiva para homens de presença. Uma fragrância robusta e marcante que exala autoridade através de suas notas de couro e madeira.",
     notes: {
       top: "Bergamota",
       heart: "Couro",
@@ -204,7 +204,7 @@ export const perfumes = [
     image: "/imgs/supremacy-colletions-edition.jpeg",
     aromas: "Frutado, Defumado, Musk",
     description:
-      "O auge da perfumaria de nicho. Poderoso, másculo e distinto.",
+      "A expressão máxima da perfumaria de nicho da Afnan. Uma poção poderosa, esfumaçada e distintamente masculina, reservada para colecionadores e homens de gosto refinado.",
     notes: {
       top: "Abacaxi",
       heart: "Bétula",
@@ -222,7 +222,7 @@ export const perfumes = [
     image: "/imgs/musaan.jpeg",
     aromas: "Couro, Especiado, Incensado",
     description:
-      "Escuro, sombrio e extremamente masculino. O perfume da cobra.",
+      "Ousado e hipnótico como a serpente que adorna seu frasco. Uma fragrância escura, sombria e intensamente masculina, dominada por couro e incenso para uma assinatura fatal.",
     notes: {
       top: "Pimenta",
       heart: "Couro",
@@ -239,7 +239,7 @@ export const perfumes = [
     image: "/imgs/khamrah.jpeg",
     aromas: "Tâmara, Especiarias, Baunilha",
     description:
-      "O fenômeno do momento. Licoroso, doce e inesquecível.",
+      "O fenômeno mundial que redefiniu os perfumes gourmands. Quente, licoroso e deliciosamente doce, é uma experiência olfativa embriagadora e absolutamente inesquecível.",
     notes: {
       top: "Canela",
       heart: "Tâmara",
@@ -258,7 +258,7 @@ export const perfumes = [
     image: "/imgs/liquid-brun.jpeg",
     aromas: "Âmbar, Baunilha, Especiado",
     description:
-      "Opulência em frasco. Um aroma de nicho profundo e quente.",
+      "A verdadeira opulência engarrafada. Um aroma de qualidade de nicho, profundo e acolhedor, onde o calor das especiarias se funde a uma baunilha ambarada de extremo luxo.",
     notes: {
       top: "Canela",
       heart: "Baunilha",
@@ -275,7 +275,7 @@ export const perfumes = [
     image: "/imgs/maahir.jpeg",
     aromas: "Cítrico, Menta, Fresco",
     description:
-      "O cavalo prateado. Extremamente refrescante e elegante.",
+      "O majestoso cavalo prateado da Lattafa. Uma lufada de ar fresco, combinando notas geladas de menta e cítricos em uma composição revigorante, limpa e extremamente elegante.",
     notes: {
       top: "Menta",
       heart: "Lavanda",
@@ -292,7 +292,7 @@ export const perfumes = [
     image: "/imgs/supremacy.jpeg",
     aromas: "Cítrico, Amadeirado, Musk",
     description:
-      "Clássico, atemporal e extremamente refinado.",
+      "A definição do homem clássico de sucesso. Atemporal e extremamente refinado, mescla o frescor frutado com uma base amadeirada que exala classe e confiança.",
     notes: {
       top: "Bergamota",
       heart: "Groselha",
@@ -309,7 +309,7 @@ export const perfumes = [
     image: "/imgs/wesal.jpeg",
     aromas: "Especiado, Âmbar, Profundo",
     description:
-      "Forte, imponente e com excelente fixação.",
+      "A assinatura do poder oriental. Uma fragrância profundamente imponente e especiada, reconhecida por sua fixação monstruosa e um rastro que anuncia a sua chegada.",
     notes: {
       top: "Especiarias",
       heart: "Âmbar",
@@ -326,7 +326,7 @@ export const perfumes = [
     image: "/imgs/mishlah.jpeg",
     aromas: "Âmbar, Especiado, Couro",
     description:
-      "Tradicional e luxuoso. O perfume para homens de negócios.",
+      "A aura do sucesso nos negócios. Tradicional, luxuoso e cortante, este perfume combina couro e açafrão para transmitir seriedade, respeito e sofisticação inquestionável.",
     notes: {
       top: "Açafrão",
       heart: "Couro",
