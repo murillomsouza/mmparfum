@@ -55,6 +55,25 @@ export const perfumes = [
   },
 
   {
+    id: "asad",
+    name: "Asad",
+    brand: "Lattafa",
+    gender: "Masculino",
+    image: "/imgs/asad.jpeg",
+    aromas: "Especiado, Âmbar, Baunilha",
+    description:
+      "O clássico da Lattafa. Poderoso, marcante e extremamente masculino, combina especiarias quentes, notas ambaradas e uma base adocicada irresistível.",
+    notes: {
+      top: "Pimenta Preta",
+      heart: "Patchouli",
+      base: "Baunilha",
+    },
+    whatsappText: "Olá! Gostaria de garantir o Asad.",
+    maisVendido: true,
+    selo: "Mais Procurado",
+  },
+
+  {
     id: "eclaire",
     name: "Eclaire",
     brand: "Lattafa",

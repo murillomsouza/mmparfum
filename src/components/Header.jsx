@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { WHATSAPP_NUMBER } from '../constants';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const mensagem = "Olá! Vim pelo site da MM Parfum e gostaria de conhecer os perfumes disponíveis.";
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
 
@@ -17,13 +21,40 @@ export function Header() {
     }
   };
 
-  const handleNavClick = (sectionName) => {
-    setIsMenuOpen(false);
+  // Nova Função de Navegação Inteligente
+  const handleNavigation = (e, hash, sectionName) => {
+    e.preventDefault(); // Impede o pulo brusco do HTML
+    setIsMenuOpen(false); // Fecha o menu mobile se estiver aberto
     trackGAEvent('click_nav_link', `Menu: ${sectionName}`, 'Header');
+
+    // Função interna para rolar com um pequeno desconto para o Header Fixo
+    const scrollToSection = () => {
+      const element = document.querySelector(hash);
+      if (element) {
+        const headerOffset = 80; 
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    };
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Aguarda um instante para a Home renderizar e depois rola a tela
+      setTimeout(scrollToSection, 150);
+    } else {
+      // Se JÁ ESTIVER na Home, apenas rola suavemente
+      scrollToSection();
+    }
   };
 
   const handleWhatsappClick = (deviceType) => {
     trackGAEvent('generate_lead', 'Botão Fale Conosco', `Header - ${deviceType}`);
+  };
+
+  const handleLogoClick = () => {
+    trackGAEvent('click_nav_link', 'Logo Principal', 'Header');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -31,7 +62,12 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          <div className="flex items-center gap-3">
+          {/* Logo agora é um Link do React Router */}
+          <Link 
+            to="/" 
+            onClick={handleLogoClick}
+            className="flex items-center gap-3 cursor-pointer hover:opacity-90 transition-opacity"
+          >
             <img 
               src="/imgs/logocircular.jpeg" 
               alt="Logo MM Parfum" 
@@ -45,14 +81,14 @@ export function Header() {
                 Beyond Scents
               </span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-roxo-principal font-medium text-sm">
-            <a href="#inicio" onClick={() => handleNavClick('Início')} className="hover:text-dourado-accent transition-colors">Início</a>
-            <a href="#produtos" onClick={() => handleNavClick('Produtos')} className="hover:text-dourado-accent transition-colors">Produtos</a>
-            <a href="#depoimentos" onClick={() => handleNavClick('Depoimentos')} className="hover:text-dourado-accent transition-colors">Depoimentos</a>
-            <a href="#contato" onClick={() => handleNavClick('Contato')} className="hover:text-dourado-accent transition-colors">Contato</a>
+            <a href="#inicio" onClick={(e) => handleNavigation(e, '#inicio', 'Início')} className="hover:text-dourado-accent transition-colors">Início</a>
+            <a href="#produtos" onClick={(e) => handleNavigation(e, '#produtos', 'Produtos')} className="hover:text-dourado-accent transition-colors">Produtos</a>
+            <a href="#depoimentos" onClick={(e) => handleNavigation(e, '#depoimentos', 'Depoimentos')} className="hover:text-dourado-accent transition-colors">Depoimentos</a>
+            <a href="#contato" onClick={(e) => handleNavigation(e, '#contato', 'Contato')} className="hover:text-dourado-accent transition-colors">Contato</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -89,10 +125,10 @@ export function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-lilas-fundo border-t border-roxo-principal/10 shadow-lg absolute w-full left-0">
           <nav className="flex flex-col px-4 py-4 space-y-4">
-            <a href="#inicio" className="text-roxo-principal font-medium text-base" onClick={() => handleNavClick('Início Mobile')}>Início</a>
-            <a href="#produtos" className="text-roxo-principal font-medium text-base" onClick={() => handleNavClick('Produtos Mobile')}>Produtos</a>
-            <a href="#depoimentos" className="text-roxo-principal font-medium text-base" onClick={() => handleNavClick('Depoimentos Mobile')}>Depoimentos</a>
-            <a href="#contato" className="text-roxo-principal font-medium text-base" onClick={() => handleNavClick('Contato Mobile')}>Contato</a>
+            <a href="#inicio" className="text-roxo-principal font-medium text-base" onClick={(e) => handleNavigation(e, '#inicio', 'Início Mobile')}>Início</a>
+            <a href="#produtos" className="text-roxo-principal font-medium text-base" onClick={(e) => handleNavigation(e, '#produtos', 'Produtos Mobile')}>Produtos</a>
+            <a href="#depoimentos" className="text-roxo-principal font-medium text-base" onClick={(e) => handleNavigation(e, '#depoimentos', 'Depoimentos Mobile')}>Depoimentos</a>
+            <a href="#contato" className="text-roxo-principal font-medium text-base" onClick={(e) => handleNavigation(e, '#contato', 'Contato Mobile')}>Contato</a>
             
             <a 
               href={whatsappUrl}

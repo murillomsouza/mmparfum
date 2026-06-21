@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Sparkles } from 'lucide-react';
 
 export function Hero({ campanha = {}, children }) {
   // Função de rastreamento do GA4
@@ -16,8 +18,12 @@ export function Hero({ campanha = {}, children }) {
     trackGAEvent('click_cta', `Botão: ${campanha.textoBotao || 'Explorar'}`, 'Hero Section');
   };
 
+  const handleQuizClick = () => {
+    trackGAEvent('click_quiz', 'Botão Hero: Descobrir Perfume', 'Hero Section');
+  };
+
   return (
-    <section id= "inicio" className="relative bg-lilas-fundo pt-24 pb-20 overflow-hidden">
+    <section id="inicio" className="relative bg-lilas-fundo pt-24 pb-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-10">
           
@@ -40,18 +46,30 @@ export function Hero({ campanha = {}, children }) {
               {campanha.descricao}
             </p>
             
-            <a 
-              href="#produtos" 
-              onClick={handleCTAClick}
-              className="inline-flex items-center justify-center gap-2 bg-roxo-principal text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg shadow-roxo-principal/20 hover:bg-roxo-escuro active:scale-95 transition-all duration-300 w-full sm:w-auto"
-            >
-              <svg className="w-5 h-5 text-dourado-accent" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-              </svg>
-              {campanha.textoBotao}
-            </a>
+            {/* Container dos Botões */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <a 
+                href="#produtos" 
+                onClick={handleCTAClick}
+                className="inline-flex items-center justify-center gap-2 bg-roxo-principal text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg shadow-roxo-principal/20 hover:bg-roxo-escuro active:scale-95 transition-all duration-300 w-full sm:w-auto"
+              >
+                <svg className="w-5 h-5 text-dourado-accent" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                </svg>
+                {campanha.textoBotao}
+              </a>
 
-            {/*renderizamos o PromoCTA (ou qualquer outro gatilho injetado) */}
+              <Link 
+                to="/quiz" 
+                onClick={handleQuizClick}
+                className="inline-flex items-center justify-center gap-2 bg-transparent text-roxo-principal border-2 border-roxo-principal px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-roxo-principal hover:text-white active:scale-95 transition-all duration-300 w-full sm:w-auto"
+              >
+                <Sparkles className="w-4 h-4" />
+                Qual o meu?
+              </Link>
+            </div>
+
+            {/* renderizamos o PromoCTA */}
             {children}
           </div>
 
