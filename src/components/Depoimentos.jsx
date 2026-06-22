@@ -76,7 +76,8 @@ export function Depoimentos() {
   };
 
   return (
-    <section id="depoimentos" className="py-12 sm:py-16 bg-white border-b border-roxo-principal/10 overflow-hidden">
+    // Removido: border-b border-roxo-principal/10
+    <section id="depoimentos" className="py-12 sm:py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Cabeçalho com Resumo de Avaliações (Gatilho de Prova Social Consolidada) */}
